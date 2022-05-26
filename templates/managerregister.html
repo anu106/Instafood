@@ -1,0 +1,66 @@
+<html> 
+<head> 
+
+<meta charset="UTF-8"> 
+<title> Manager Registration </title> 
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">    
+
+<style>
+  body {
+    background-image: url('https://console.kr-asia.com/wp-content/uploads/2020/05/Food-Delivery-Shutterstock-M-Size-1-scaled.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+  </style>
+
+
+</head> 
+
+<body>
+
+<marquee scrollamount="10" >Page for Manager Registration</marquee>
+
+</br></br></br></br> 
+<div class="managerregister" align="center">
+
+<h2> 
+<form action="{{ url_for('managerregister') }}" onsubmit="return check()" method="post"> 
+<div class="msg">{{ msg }}</div> 
+<input id="username" name="username" type="text" placeholder="Enter Username" class="textbox" size="20"/></br>
+<input id="password" name="password" type="password" placeholder="Enter Password" class="textbox" size="20"/></br> 
+<input id="mobno" name="mobno" type="text" placeholder="Enter Mobile Number" class="textbox" size="20"/></br>
+<input id="resname" name="resname" type="text" placeholder="Enter Outlet Name" class="textbox" size="20"/></br>
+<input id="email" name="email" type="text" placeholder="Enter Email Address" class="textbox" size="20"/></br>
+<input id="latitude" name="latitude" type="text" placeholder="Enter Latitude of Outlet" class="textbox" size="20"/></br>
+<input id="longitude" name="longitude" type="text" placeholder="Enter Longitude of Outlet" class="textbox" size="20"/></br>
+<button type="submit" value="Sign Up" class="btn btn-success">Register</button></br> 
+</form> 
+
+<script>
+function check(){
+  let a=document.getElementById("username").value;
+  let b=document.getElementById("password").value;
+  let d=document.getElementById("resname").value;
+  if(a==""){
+	alert("Username cannot be blank!");
+	return false;
+  }
+  else if(b.length<8){
+	alert("Password should have atleast 8 characters!");
+	return false;
+  }
+  else if(d==""){
+	alert("Outlet Name cannot be blank!");
+	return false;
+  }
+}
+</script>
+
+</h2> 
+<p class="bottom">Already have an account? &nbsp<a class="bottom" href="{{url_for('managerlogin')}}">Sign In Here</a></p> 
+
+</div> 
+
+</body> 
+</html> 

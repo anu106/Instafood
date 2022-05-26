@@ -1,0 +1,32 @@
+<html> 
+<head> 
+
+<style>
+body {
+  background-image: url('static/deliveryboy.jpg');
+}
+</style>
+<meta charset="UTF-8"> 
+<title> Address </title> 
+<link rel="stylesheet" href="{{ url_for('static', filename='styleg.css') }}">               
+
+</head> 
+
+<body>
+
+<div class="managerregister" align="center">
+
+<h2> 
+<form action="{{ url_for('address') }}" onsubmit="return check()" method="post"> 
+<div class="msg">{{ msg }}</div> 
+<h2>Total Order Price is: {{acc['sum']}}</h2>
+<h2>Enter the address where you want the order to be delivered</h2>
+<input id="address" name="address" type="text" placeholder="Your Address"class="textbox" size="20"/></br>
+<button type="submit" value="">Finish Order Confirmation</button></br> 
+</form> 
+</h2> 
+
+</div> 
+
+</body> 
+</html> 

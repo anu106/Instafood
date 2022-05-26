@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"> 
+</head>
+
+<style>
+    body {
+      background-image: url('https://console.kr-asia.com/wp-content/uploads/2020/05/Food-Delivery-Shutterstock-M-Size-1-scaled.jpg');
+      background-attachment: fixed;
+      background-size: cover;
+    }
+    </style>
+<body class="bgimg">
+	<div class="div1" align="center">
+	<h1><a href="{{ url_for('fetchuser') }}">Users</a></h1></br>
+	<form action="{{ url_for('adminsearchusername') }}" method="post"> 
+		<div class="msg">{{ msg }}</div> 
+		<input id="username" name="username" type="text" placeholder="Enter Username" class="textbox" size="15"/>
+		<button type="submit" value="Search by username" class="btn btn-success">Search By Username</button></br> 
+	</form>
+	<form action="{{ url_for('adminsearchname') }}" method="post"> 
+		<div class="msg">{{ msg }}</div> 
+		<input id="name" name="name" type="text" placeholder="Enter Name" class="textbox" size="15"/>
+		<button type="submit" value="Search by name" class="btn btn-success">Search By Name</button></br> 
+	</form>
+	
+	</div>
+	
+</body>
+</html>

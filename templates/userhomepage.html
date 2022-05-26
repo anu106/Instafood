@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+    <title>HOME | INDIAN ARMY</title>
+</head>
+
+<body>
+    <nav>
+        <div class="menu1">
+			<div class="image"><img src="{{url_for('static', filename='logo1.png')}}" alt="" /> <br /></div>
+            <div class="logo">
+                <a href="{{ url_for('userhomepage') }}">FOOD APP </a> <br />
+            </div>
+            <ul>
+				<li><a href="#">Welcome, {{session.username}}!</a></li>
+				<li><a href="{{ url_for('cart') }}">Cart</a></li>
+				<li><a href="{{ url_for('search') }}">Search</a></li>
+                <li><a href="{{ url_for('orderhistory') }}">Order History</a></li>
+				<li><a href="{{ url_for('logout') }}">Sign Out</a></li>
+            </ul>
+        </div>
+    </nav>
+	
+    <div class="center">
+        <div class="title">
+            This website helps you in joining the Indian Army as an Officer or as any Other Rank
+			<br /> depending on your qualification and aptitude. You can talk to Officers in the
+			</br> Army directly through our Live Chat and Blog features.
+        </div>
+        <div class="imp">
+            <h1>Important details and information</h1>
+            <div class="sub" style="color: rgb(177, 115, 0)">
+				<h2><a href="{{ url_for('outletlist') }}">| Outlet List</a></h2>
+				<h2><a href="#" style="color: green">| About the Indian Army</a></h2>
+				<h2><a href="#" style="color: green">| Important Articles</a></h2>
+				<h2><a href="#" style="color: green">| Check Eligibility</a></h2>
+			</div>
+		</div>
+		
+		<br /><br />
+    </div>
+
+</body>
+
+</html>

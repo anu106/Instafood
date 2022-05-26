@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Prompt:ital,wght@1,300&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital@1&family=Hind+Siliguri&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital@1&display=swap" rel="stylesheet">
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css' rel='stylesheet' />
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">      
+</head>
+<style>
+    body {
+      background-image: url('https://twaymedia.com/wp-content/uploads/2021/05/ubereats-clone.jpg');
+  
+      background-size: contain;
+    }
+    </style>
+
+<body>
+    <div class = "container" >
+        {% if detail !="No records found"%}
+            <h4 align="center" class="msg">
+                <strong>{{msg}}</strong>
+            </h4>
+            <br>
+            {% if detail %}
+            <div class="table-container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Image</th>
+                            <th scope="col">Outlet Name</th>
+                            <th scope="col">Item</th>
+							<th scope="col">Price</th>
+							<th scope="col">Add to Cart</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for u in detail %}
+                            <tr>
+                                <td><img src="/static/upload/{{u['image']}}" width="140" height="70" alt=""></td>
+                                <td> {{u['resname']}} </td>
+                                <td> {{u['item']}} </td>
+								<td> {{u['price']}} </td>
+								<td>
+                                    <button ><a href="{{url_for('addtocart',id=u['itemid'])}}" class="btn btn-success">Add To Cart</a></button>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {%endif%}
+            <div>
+                {%else%}
+                    <h4 align="center" class="msg">
+                        <strong>{{detail}}</strong>
+                    </h4>
+                {%endif%}
+            </div>  
+            <div id='map' style='width: 400px; height: 300px;'>
+            </div>
+            <button onclick="getLocation()" class="btn btn-success">Show outlet</button>
+            <script>
+                function plot(p1){
+                var long= parseFloat('{{ loc[0] }}');
+                var lat=parseFloat('{{loc[1]}})');
+                  
+                    p1=[p1.coords.longitude,p1.coords.latitude];
+                        console.log(p1);
+                    plotmap(p1,[long,lat]);
+                };
+                function plotmap(p1,p2){
+                    console.log(p2)
+                    mapboxgl.accessToken = 'pk.eyJ1Ijoic3ZnMjMiLCJhIjoiY2wxeXU4bWMyMGczODNjbTZucG5iNnZsNSJ9.-whtcCPIvjy_mYpqE_q8ig'; 
+                    const map=new mapboxgl.Map({
+                    container: 'map', // container ID
+                    style: 'mapbox://styles/mapbox/streets-v11', // style URL
+                    center: p1, // starting position [lng, lat]
+                    zoom: 5 // starting zoom
+                  });;
+                  var marker= new mapboxgl.Marker({ color: 'green'}).setLngLat(p1).addTo(map);
+                  var marker1= new mapboxgl.Marker({ color: 'black'}).setLngLat(p2).addTo(map);
+                }
+                  var x = document.getElementById("demo");
+                  function getLocation() {
+                    console.log("map1");
+                    if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(plot);
+                    } else {
+                    x.innerHTML = "Geolocation is not supported by this browser.";
+                    }
+                }
+                 
+              </script>
+    </div>
+</body>
+</html>

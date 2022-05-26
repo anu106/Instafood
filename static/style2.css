@@ -1,0 +1,181 @@
+*{
+    box-sizing: border-box;
+    margin: 0%;
+    padding:0;
+}
+li,a, button{
+    font-family: 'Andada Pro', serif;
+    font-weight: 400;
+    color: white;
+    font-size: 16px;
+    text-decoration: none;
+}
+header{
+    display: flex;
+    background-color: rgb(7, 7, 51);
+    justify-content: space-between;
+    align-items: left;
+    padding: 0px 5%;
+    max-height: 5%;
+}
+.logo{
+    cursor: pointer;
+    height: 75px;
+    padding-top: 10px;
+    margin-bottom: 10px;
+}
+.nav-link{
+    list-style: none;
+}
+.nav-link li{
+  display: inline-block;
+  padding: 0px 20px;
+}
+.nav-link li a {
+    transition: all 0.3s ease 0s;
+}
+.nav-link li a:hover {
+    color: turquoise;
+}
+button{
+    padding: 9px 25px;
+    background-color: rgb(218, 241, 10);
+    border: none;
+    color: black;
+    border-radius: 50px;
+    cursor: pointer;
+} 
+
+
+
+.detail-box
+{
+    justify-content: center;
+    text-align: center;
+    padding-top: 50px;
+}
+.form-group
+{
+    padding: 15px;
+    font-size: 20px;
+    font-weight: bolder;
+    box-sizing: border-box;
+}
+.login p{
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}
+
+.login input{
+    width: 100%;
+    margin-bottom: 20px;
+}
+.login input[type="text" ], input[type="password"]{
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: rgb(223, 208, 8);
+    font-size: 16px;
+
+}
+.login input[type="submit"]{
+    border: none;
+    outline: none;
+    height: 40px;
+    background: greenyellow;
+    font-size: 18px;
+    border-radius: 20px;
+    color: #000;
+}
+.login input[type="submit"]:hover{
+    cursor: pointer;
+    background: #ffc107;
+    color: #000;
+}
+
+
+h1{
+    margin: 0%;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bolder;
+ 
+ }
+ .personal-details{
+    background-image: url('wallpaper_indian_army.png');
+    margin: 0;
+    padding: 10%;
+    
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: sans-serif;
+    
+}
+ .button {background-color: #4CAF50;} 
+ .button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: rgb(8, 0, 7);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  } 
+  .detail-box{
+    width: 650px;
+    height: 120%;
+    background: black;
+    opacity: 0.8;
+    padding: 1% 30px;
+    color: rgb(255, 255, 255);
+    top: 50%;
+    left: 50%;
+    position: relative;
+    box-sizing: border-box;
+    
+}
+.Register-top{
+    font-size: 30px;
+}
+.navbar-1{
+    padding-top: 20px;
+    align-items: center;
+}
+.firstimg{
+    margin-left: 60px;
+}
+.prm-veer{
+    margin-left: 60px;
+    margin-right: 60px;
+}
+.ashoka{
+    margin-left: 60px;
+    margin-right: 60px;
+}
+.mahavir{
+    margin-left: 60px;
+    margin-right: 60px;
+}
+.maha{
+    margin-top: 20px;
+}
+.vayu2{
+    margin-left: 60px;
+    margin-right: 60px;
+}
+.vayu3{
+    margin-left: 60px;
+    margin-right: 60px;
+    margin-bottom : 100px;
+}
+.img2{
+    margin-left: 60px;
+}
+.img3{
+    margin-right: 60px;
+}

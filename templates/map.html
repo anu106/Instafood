@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css' rel='stylesheet' />
+    <title>Mapbox</title>
+</head>
+<body>
+<button onclick="getLocation()">Order done</button>
+  <script>
+      
+    function plot(p1){
+      mapboxgl.accessToken = 'pk.eyJ1Ijoic3ZnMjMiLCJhIjoiY2wxeXU4bWMyMGczODNjbTZucG5iNnZsNSJ9.-whtcCPIvjy_mYpqE_q8ig'; 
+      const map=new mapboxgl.Map({
+        container: 'map', // container ID
+        style: 'mapbox://styles/mapbox/streets-v11', // style URL
+        center: [75.857727, 22.719568], // starting position [lng, lat]
+        zoom: 9 // starting zoom
+      });;
+        p1=[p1.coords.longitude,p1.coords.latitude];
+		    console.log(p1);
+        plotmap(p1,map)
+    }
+    function plotmap(p1,map){
+        console.log("map");
+        var marker1= new mapboxgl.Marker({ color: 'green'}).setLngLat(p1).addTo(map);
+        for(var i=0;i<'{{len}}';i++){
+            console.log('{{outlets[i]}}')
+           console.log(i)
+        }
+
+    }
+      var x = document.getElementById("demo");
+      function getLocation() {
+        console.log("map1");
+        if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(plot);
+        } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+    }
+  </script>
+
+<div id='map' style='width: 400px; height: 300px;'>
+</div>
+<script>
+    
+    </script>
+</body>
+</html>

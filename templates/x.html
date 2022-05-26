@@ -1,0 +1,35 @@
+<html> 
+<head>
+<style>
+body {
+  background-image: url('static/wallpaperflare.com_wallpaper.jpg');
+}
+</style> 
+
+<meta charset="UTF-8"> 
+<title> Manager Registration </title> 
+<link rel="stylesheet" href="{{ url_for('static', filename='styleg.css') }}">               
+
+</head> 
+
+<body>
+
+<marquee scrollamount="10" >Give your rating </marquee>
+
+</br></br></br></br> 
+<div class="managerregister" align="center">
+
+<h2> 
+<form action="{{ url_for('feedback',id=item['orderid']) }}" onsubmit="return check()" method="post"> 
+<div class="msg">{{ msg }}</div> 
+<h2>Rating for {{item['item']}} of {{item['resname']}}</h2>
+<input id="rating" name="rating" type="number" placeholder="Rating of food out of 5"class="textbox" size="20"/></br>
+<button type="submit" value="">Submit rating</button></br> 
+<button type="submit" value="">Skip rating</button></br> 
+</form> 
+</h2> 
+
+</div> 
+
+</body> 
+</html> 

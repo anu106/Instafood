@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+body {
+  background-image: url('static/cropped-favicon.jpg');
+}
+#menu {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+  
+#menu td, #menu th {
+    border: 1px solid rgb(158, 40, 40);
+    padding: 8px;
+}
+  
+#menu tr:nth-child(even){background-color: #d02e2e;}
+#menu tr:nth-child(odd){background-color: #223ccc;}
+  
+#menu tr:hover {background-color: rgb(166, 225, 170);}
+  
+#menu th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+}
+#remove1 {
+  background-color: #93e8a4; /* Green */
+  border-radius: 25px;
+  border: coral;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+#remove1:hover {
+  background-color: #ffffff; /* Green */
+  color: white;
+}
+.vertical-center {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        right: 50%;
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+      }
+</style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Prompt:ital,wght@1,300&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital@1&family=Hind+Siliguri&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital@1&display=swap" rel="stylesheet">
+</head>
+<body>
+	
+    <div class = "container" >
+        {% if detail !="No records found"%}
+            <h4 align="center" class="msg">
+                <strong>{{msg}}</strong>
+            </h4>
+            <br>
+            {% if detail %}
+            <div class="table-container" id="menu">
+                <table class="table">
+                    <thead>
+                        <tr>
+							<th scope="col">Item</th>
+							<th scope="col">Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for u in detail %}
+                            <tr>
+                                <td> {{u['item']}} </td>
+								<td> {{u['price']}} </td>
+								<td><button class="action" id="remove1"><a href="{{url_for('deleteitem',id=u['itemid'])}}">Remove item</a></button></td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {%endif%}
+            <div>
+                {%else%}
+                    <h4 align="center" class="msg">
+                        <strong>{{detail}}</strong>
+                    </h4>
+                {%endif%}
+            </div>  
+    </div>
+    <div class="vertical-center">
+    <button class="action"><a href="{{url_for('additem')}}">Add item</a></button>
+    </div>
+</body>
+</html>

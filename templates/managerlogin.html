@@ -1,0 +1,54 @@
+<html> 
+<head> 
+
+<meta charset="UTF-8"> 
+<title> Manager Login </title> 
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">            
+
+</head> 
+<style>
+  body {
+    background-image: url('https://console.kr-asia.com/wp-content/uploads/2020/05/Food-Delivery-Shutterstock-M-Size-1-scaled.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+  </style>
+
+<body> 
+
+<marquee scrollamount="10" >Manager Login Page</marquee>
+
+</br></br></br></br>
+<div class="div1" align="center"> 
+
+<h2>
+<form action="{{ url_for('managerlogin') }}" onsubmit="return check()" method="post">
+<div class="msg">{{ msg }}</div> 
+<input id="username" name="username" type="text" placeholder="Enter Your Username" class="textbox"/></br></br> 
+<input id="password" name="password" type="password" placeholder="Enter Your Password" class="textbox"/></br></br></br>
+<button type="submit" value="Sign In" class="btn btn-success">Submit</button></br></br>
+</form>
+
+<script>
+function check(){
+  let x=document.getElementById("username").value;
+  let y=document.getElementById("password").value;
+  if(x==""){
+	alert("Username cannot be blank!");
+	return false;
+  }
+  else if(y.length==0){
+	alert("Password cannot be blank!");
+	return false;
+  }
+}
+</script>
+ 
+</h2>
+<p class="bottom" >Don't have an account? &nbsp<a class="bottom" href="{{url_for('managerregister')}}">Register here</a></p> 
+
+</div>
+
+</body> 
+</html> 

@@ -1,0 +1,37 @@
+<html> 
+<head> 
+
+<meta charset="UTF-8"> 
+<title> Admin </title> 
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">            
+
+</head> 
+<style>
+    body {
+      background-image: url('https://console.kr-asia.com/wp-content/uploads/2020/05/Food-Delivery-Shutterstock-M-Size-1-scaled.jpg');
+      background-attachment: fixed;
+      background-size: cover;
+    }
+    </style>
+
+<body>
+<div class="adminpage" align="center"> 
+
+<h1>
+
+<a href="{{ url_for('deleteuser') }}" style="color: rgb(0, 0, 0);">Delete User</a></br>
+<a href="{{ url_for('verifyofficer') }}" style="color: rgb(0, 0, 0);">Verify Officer</a></br>
+<a href="{{ url_for('addnews') }}" style="color: rgb(0, 0, 0);">Add News</a></br>
+<a href="{{ url_for('deletenews') }}" style="color: rgb(63, 0, 157);">Delete News</a></br>
+<a href="{{ url_for('addnotif') }}" style="color: rgb(63, 0, 157);">Add Notification</a></br>
+<a href="{{ url_for('deletenotif') }}" style="color: rgb(63, 0, 157);">Delete Notification</a></br>
+<a href="{{ url_for('addarticle') }}" style="color: rgb(72, 164, 29);">Add Article</a></br>
+<a href="{{ url_for('deletearticle') }}" style="color: rgb(72, 164, 29);">Delete Article</a></br>
+<a href="{{ url_for('deleteblog') }}" style="color: rgb(72, 164, 29);">Delete Blog Post</a></br></br>
+<a href="{{ url_for('logout') }}" style="color: rgb(232, 252, 59);">Logout</a>
+</h1>
+</div>
+
+
+</body> 
+</html> 

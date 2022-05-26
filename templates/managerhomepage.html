@@ -1,0 +1,31 @@
+<html> 
+<head> 
+
+<meta charset="UTF-8"> 
+<title> Admin </title> 
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">            
+
+</head> 
+<style>
+    body {
+      background-image: url('https://console.kr-asia.com/wp-content/uploads/2020/05/Food-Delivery-Shutterstock-M-Size-1-scaled.jpg');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+    </style>
+  
+
+<body>
+<div class="adminpage" align="center"> 
+
+<h1>
+    <a href="{{ url_for('editmenu') }}" style="color: rgb(237, 1, 1);">Edit menu</a>
+    <a href="{{ url_for('logout') }}" style="color: rgb(60, 255, 0);">Feedback</a>
+    <a href="{{ url_for('orderhist') }}" style="color: rgb(237, 1, 1);">Order history</a>
+<a href="{{ url_for('logout') }}" style="color: rgb(60, 255, 0);">Logout</a>
+</h1>
+</div>
+
+</body> 
+</html> 

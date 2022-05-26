@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+#verout {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+  
+#verout td, #verout th {
+    border: 1px solid rgb(158, 40, 40);
+    padding: 8px;
+}
+  
+#verout tr:nth-child(even){background-color: #ebdede;}
+#verout tr:nth-child(odd){background-color: #f2f3f9;}
+  
+#verout tr:hover {background-color: rgb(166, 225, 170);}
+  
+#verout th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+}
+#x1 {
+  background-color: #ddf19c; /* Green */
+  border-radius: 25px;
+  border: coral;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+#x1:hover {
+  background-color: #ffffff; /* Green */
+  color: white;
+}
+</style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify Outlet</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Prompt:ital,wght@1,300&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital@1&family=Hind+Siliguri&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital@1&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class = "container" >
+        {% if detail !="No records found"%}
+            <h4 align="center" class="msg">
+                <strong>{{msg}}</strong>
+            </h4>
+            <br>
+            {% if detail %}
+            <div class="table-container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Username</th>
+							<th scope="col">Mobno</th>
+							<th scope="col">Outlet Name</th>
+							<th scope="col">Email</th>
+							<th scope="col">Verify</th>
+							<th scope="col">Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for u in detail %}
+                            <tr>
+                                <td> {{u['username']}} </td>
+								<td> {{u['mobno']}} </td>
+								<td> {{u['resname']}} </td>
+								<td> {{u['email']}} </td>
+								<td>
+                                    <button class="action"><a href="{{url_for('verifyacc',id=u['username'])}}">Verify</a></button>
+                                </td>
+								<td>
+                                    <button class="action"><a href="{{url_for('deletereq',id=u['username'])}}">Delete</a></button>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {%endif%}
+            <div>
+                {%else%}
+                    <h4 align="center" class="msg">
+                        <strong>{{detail}}</strong>
+                    </h4>
+                {%endif%}
+            </div>  
+    </div>
+</body>
+</html>

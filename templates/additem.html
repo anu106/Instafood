@@ -1,0 +1,54 @@
+<html> 
+<head> 
+
+<meta charset="UTF-8"> 
+<title> Add Blog </title> 
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">          
+
+</head> 
+
+<style>
+  body {
+    background-image: url('https://twaymedia.com/wp-content/uploads/2021/05/ubereats-clone.jpg');
+
+    background-size: contain;
+  }
+  </style>
+
+<body>
+<div class="addblog" align="center">
+<form action="{{ url_for('additem') }}" onsubmit="return check()" method="post" enctype = "multipart/form-data"> 
+<div class="msg">{{ msg }}</div> 
+<input id="item" name="item" type="text" placeholder="Enter item" class="textbox" size="20"/></br>
+<input id="price" name="price" type="number" placeholder="Enter price" class="textbox" size="20"/></br>
+<input type = "file" name = "image" id="image" placeholder="Enter image of item"/></br></br>
+<button type="submit" class="btn btn-success" value="Add">Add</button></br> 
+</form> 
+
+<script>
+function check(){
+  let a=document.getElementById("item").value;
+  let b=document.getElementById("quantity").value;
+  let c=document.getElementById("price").value;
+  if(a==""){
+	alert("Item cannot be blank");
+	return false;
+  }
+  else if(!b){
+	alert("Quantity cannot be blank");
+	return false;
+  }
+  else if(!c){
+	alert("price cannot be blank!");
+	return false;
+  }
+}
+</script>
+
+</h2>
+
+</div>
+
+
+</body> 
+</html>

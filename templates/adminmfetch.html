@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Prompt:ital,wght@1,300&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital@1&family=Hind+Siliguri&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital@1&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class = "container" >
+        {% if detail !="No records found"%}
+            <h4 align="center" class="msg">
+                <strong>{{msg}}</strong>
+            </h4>
+            <br>
+            {% if detail %}
+            <div class="table-container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Username</th>
+                            <th scope="col">Mobno</th>
+							<th scope="col">Outlet Name</th>
+							<th scope="col">Email</th>
+							<th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for u in detail %}
+                            <tr>
+                                <td> {{u['username']}} </td>
+                                <td> {{u['mobno']}} </td>
+								<td> {{u['resname']}} </td>
+								<td> {{u['email']}} </td>
+								<td>
+                                    <button class="action"><a href="{{url_for('deletemacc',id=u['username'])}}">Delete</a></button>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {%endif%}
+            <div>
+                {%else%}
+                    <h4 align="center" class="msg">
+                        <strong>{{detail}}</strong>
+                    </h4>
+                {%endif%}
+            </div>  
+    </div>
+</body>
+</html>
