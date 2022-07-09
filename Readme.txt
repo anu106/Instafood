@@ -30,7 +30,7 @@ Major Features:
     - Delete User and Mangers Accounts
     - Accept or Deny Verification Requests from the Managers
 -Navigate to the restaurants menu
--Filter the search results on the basis of the type of food to be ordered, Loation, Budget and feedback of the Restaurant
+-Filter the search results on the basis of the type of food to be ordered, Location, Budget and feedback of the Restaurant
 -Add to cart feature while scrolling the menu
 -Menu edit options for Outlet managers 
 -Option to cancel order at any time
